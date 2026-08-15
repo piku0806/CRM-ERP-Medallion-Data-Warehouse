@@ -2,8 +2,6 @@
 
 A Bronze → Silver → Gold pipeline that merges two disconnected source systems — a **CRM** (customer, product, sales data) and an **ERP** (customer demographics, location, product category) — into a single, query-ready star schema, built on **Python + DuckDB**.
 
-This isn't a synthetic demo: the source files have real, messy data quality problems (duplicate keys, inconsistent ID formats between systems, bad dates, price/sales mismatches), and the Silver layer exists specifically to resolve each one. See [Data Quality Rules](#data-quality-rules-applied) below for the full list, discovered by profiling the actual data.
-
 ## Why Medallion Architecture
 
 Raw source data is rarely safe to report on directly, and cleaning it "in place" destroys your ability to debug or reprocess. The Medallion pattern solves this with three layers, each with a single responsibility:
